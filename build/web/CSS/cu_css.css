@@ -1,0 +1,28 @@
+body{
+	background-color: #434343;
+}
+h1 {
+	text-align: center;
+	font-family: times new roman;
+	font-size: 6;
+	color: #e8e8e8;
+	font-style: italic;
+}
+footer{
+	padding-top: 2%;
+	text-align: right;
+	font-family: courier;
+	font-size: 5;
+	color: #7a5479;
+}
+form{
+	text-align: left;
+	vertical-align: middle;
+	padding: 2%;
+	margin: 3% 30%;
+	background-color: #e8e8e8;
+}
+label {
+	font-family: courier;
+	font-size: 18px;
+}

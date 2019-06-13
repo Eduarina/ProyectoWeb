@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <servlet>
+        <servlet-name>Servlet_Modif_Cuentas</servlet-name>
+        <servlet-class>Servlets.Servlet_Modif_Cuentas</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Controlador_Cliente_Proveedor</servlet-name>
+        <servlet-class>Servlets.Controlador_Cliente_Proveedor</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Controlador_Cuenta</servlet-name>
+        <servlet-class>Servlets.Controlador_Cuenta</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Servlet_Modif_Cuentas</servlet-name>
+        <url-pattern>/Servlet_Modif_Cuentas</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Controlador_Cliente_Proveedor</servlet-name>
+        <url-pattern>/Controlador_Cliente_Proveedor</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Controlador_Cuenta</servlet-name>
+        <url-pattern>/Controlador_Cuenta</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+</web-app>
