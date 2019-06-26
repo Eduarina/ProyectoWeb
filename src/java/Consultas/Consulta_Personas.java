@@ -17,7 +17,8 @@ import javax.sql.DataSource;
 Hacer el filtrado de las personas dependiendo si son ingresos o egresos
  */
 public class Consulta_Personas {
-     private DataSource origenDatos;
+    
+    private DataSource origenDatos;
    
     public Consulta_Personas(DataSource origen) {
        origenDatos = origen;
@@ -54,9 +55,9 @@ public class Consulta_Personas {
         
         try{
             conexion=origenDatos.getConnection();
-            String sql = "INSERT INTO tb_personas (Nombre,RFC,Direccion,Localidad,Municipio,Entidad,CP,Telefono,E_mail,Nombre_Empresa,Cliente_Proveedor,Status)"+
-                    "VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
-            miStatement=conexion.prepareStatement(sql);
+            String sql = "INSERT INTO tb_personas (Nombre, RFC, Direccion, Localidad, Municipio, Entidad, CP, Telefono, E_mail, Nombre_Empresa, Cliente_Proveedor, Status )"+
+                        "VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+            miStatement = conexion.prepareStatement(sql);
             miStatement.setString(1, constructor.getNombre());
             miStatement.setString(2, constructor.getRFC());
             miStatement.setString(3, constructor.getDireccion());
@@ -70,10 +71,11 @@ public class Consulta_Personas {
             miStatement.setInt(11, constructor.getProveedor_Cliente());
             miStatement.setInt(12, estatus);
             miStatement.executeUpdate();
-            
         }catch(Exception e){
             System.out.println(e.toString());
         }
     }
+    
+    
 
 }

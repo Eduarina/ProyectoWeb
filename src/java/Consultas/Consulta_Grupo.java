@@ -21,7 +21,7 @@ public class Consulta_Grupo {
      private Clase_conexion origenDatos;
    
     public Consulta_Grupo() {
-       origenDatos = new Clase_conexion();
+       //origenDatos = new Clase_conexion();
     }
     
     public List<C_Grupo_Mov> getEstados(){

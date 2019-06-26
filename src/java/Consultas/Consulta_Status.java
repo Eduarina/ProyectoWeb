@@ -9,9 +9,12 @@ import Conexion.Clase_conexion;
 import Modelo_Tablas.tb_Status;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 
@@ -20,7 +23,11 @@ public class Consulta_Status {
     private Clase_conexion origenDatos;
    
     public Consulta_Status() {
-       origenDatos = new Clase_conexion();
+        try {
+            origenDatos = Clase_conexion.getInstance();
+        } catch (SQLException ex) {
+            Logger.getLogger(Consulta_Status.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     public List<tb_Status> getEstados(){

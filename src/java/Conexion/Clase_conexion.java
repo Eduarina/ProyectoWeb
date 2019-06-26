@@ -6,29 +6,41 @@
 package Conexion;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.SQLException;
-import javax.sql.DataSource;
-import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
 
 /**
  *
  * @author 01
  */
 public class Clase_conexion {
-    private DataSource db;
     
-    public Clase_conexion(){
-        BasicDataSource bds= new BasicDataSource();
-        bds.setDriverClassName("com.mysql.jdbc.Driver");
-        bds.setUrl("jdbc:mysql//localhost:3306/rodlp");
-        bds.setUsername("root");
-        bds.setPassword("1234");
-        
-        this.db =bds;
+    private static Clase_conexion db;
+    private Connection con;
+    private String url = "jdbc:mysql://localhost:3306/rodlp";
+    private String user = "root";
+    private String pass = "12345a";
+    
+    public Clase_conexion() throws SQLException{
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            //DriverManager.getConnection(url, url, url)
+            this.con = DriverManager.getConnection(url, user, pass);
+        } catch (Exception e) {
+            System.out.println("Error");
+        }
     }
     
-    public Connection getConexion() throws SQLException{
-        return  db.getConnection(); 
+    public Connection getConexion(){
+        return  con; 
+    }
+    
+    public static Clase_conexion getInstance() throws SQLException{
+        if ( db == null)
+            db = new Clase_conexion();
+        else if ( db.getConexion().isClosed() )
+            db = new Clase_conexion();
+        return db;
     }
     
 }

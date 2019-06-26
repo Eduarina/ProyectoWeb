@@ -21,7 +21,7 @@ public class Consulta_Cuentas {
         private Clase_conexion origenDatos;
    
     public Consulta_Cuentas() {
-       origenDatos = new Clase_conexion();
+       //origenDatos = new Clase_conexion();
     }
     
     public List<tb_Cuentas> getEstados(){

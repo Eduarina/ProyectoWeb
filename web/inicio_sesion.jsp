@@ -5,6 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,8 +16,9 @@
     </head>
 <body>
 	<h1><br>RO DELAP CONSTRUCCION SAPI DE CV</h1>
-	<form action="login" method="post" id="formulario">
+	<form method="post" id="formulario">
 		<!--<label for="username">Usuario:</label><br>-->
+                <input type="hidden" name="accion" value="login" />
 		<input type="text" name="user" placeholder="Usuario"><br><br><br><br>
 
 		<!--<label for="pword">Contraseña:</label><br>-->
@@ -23,16 +26,7 @@
 
 		<!--<input type="submit" value="Iniciar sesión">-->
 		<button>Iniciar sesión</button>
+                <span style="color: red;">${error}</span>
 	</form>
-	<SCRIPT  language=JavaScript> 
-		function go(){
-		if (document.form.password.value=='12345' && document.form.login.value=='user'){ 
-		        document.form.submit(); 
-		    } 
-		    else{ 
-		         alert("Porfavor ingrese, nombre de usuario y contraseña correctos."); 
-		    } 
-		} 
-	</SCRIPT>
 </body>
 </html>
