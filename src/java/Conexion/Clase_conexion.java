@@ -24,7 +24,6 @@ public class Clase_conexion {
     public Clase_conexion() throws SQLException{
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            //DriverManager.getConnection(url, url, url)
             this.con = DriverManager.getConnection(url, user, pass);
         } catch (Exception e) {
             System.out.println("Error");

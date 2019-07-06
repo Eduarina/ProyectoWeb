@@ -22,6 +22,8 @@ public class C_MetodoPago {
         this.Usuario = Usuario;
     }
 
+    public C_MetodoPago() {}
+    
     public int getID_Metodo_Pago() {
         return ID_Metodo_Pago;
     }

@@ -30,6 +30,10 @@ public class tb_Empresas {
         this.Usuario = Usuario;
     }
 
+    public tb_Empresas() {
+        
+    }
+
     public int getID_Empresa() {
         return ID_Empresa;
     }

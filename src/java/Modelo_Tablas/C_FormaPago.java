@@ -22,6 +22,8 @@ public class C_FormaPago {
         this.Usuario = Usuario;
     }
 
+    public C_FormaPago() {}
+
     public int getID_FormaPago() {
         return ID_FormaPago;
     }

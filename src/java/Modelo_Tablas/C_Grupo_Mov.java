@@ -22,6 +22,8 @@ public class C_Grupo_Mov {
         this.usuario = usuario;
     }
 
+    public C_Grupo_Mov(){}
+
     public int getID_Egreso() {
         return ID_Egreso;
     }

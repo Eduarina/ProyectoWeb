@@ -22,6 +22,8 @@ public class C_Proyecto {
         this.Usuario = Usuario;
     }
 
+    public C_Proyecto() {}
+
     public int getID_Proyecto() {
         return ID_Proyecto;
     }

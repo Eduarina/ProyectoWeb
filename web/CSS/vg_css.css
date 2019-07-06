@@ -1,5 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand:300&display=swap');
+
 body{
     background-color: #f2f2f2;
+    background-image: url(RDLP.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 * {
@@ -7,8 +13,16 @@ body{
     padding: 0px;
 }
 
+#reloj {
+    font-family: times new roman;
+    font-size: 35px;
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+}
+
 .menu {
-    font-family: courier;
+    font-family: Quicksand;
     padding: 0px;
     margin: 0px;
     border: 0px;
@@ -28,7 +42,9 @@ ul {
     background-color: #434343;
     color:#fff;
     text-decoration:none;
-    padding:10px 30px;
+    padding: 10px;
+    width: 400px;
+    text-align: center;
     display:block;
 }
 
@@ -61,4 +77,142 @@ ul {
 .nav li ul li ul {
     right:-140px;
     top:0px;
+}
+/*
+* {
+    margin:0px;
+    padding: 0px;
+}
+
+.img-menu {
+    width: 20px;
+}
+
+.img-menu :hover {
+    background-color:#a7baba;
+}
+
+.menu {
+        font-family: Quicksand;
+        padding: 0px;
+        border: 0px;
+        width: 100%;
+        background-color: #434343;
+    }
+
+.img-user {
+    width: 30px;
+}
+
+    ul {
+        list-style:none;
+        overflow: hidden;
+    }
+
+    .nav > li .sm {
+        padding: 0px 20px;
+    }
+
+    .nav li p {
+        background-color: #434343;
+        color:#fff;
+        text-decoration:none;
+        padding: 10px;
+        width: 400px;
+        text-align: center;
+        display:block;
+    }
+
+    .nav li a {
+        background-color: #434343;
+        color:#fff;
+        text-decoration:none;
+        padding:10px 12px;
+        display:block;
+    }
+
+    .nav li a:hover {
+        background-color:#a7baba;
+    }
+
+    .nav li ul {
+        display:none;
+        position:absulute;
+        min-width:140px;
+    }
+
+    .nav li:hover > ul {
+        display:block;
+    }
+*/
+
+@media only screen and (min-width: 1000px) {
+    .img-user {
+        display: none;
+    }
+    .img-menu {
+        display: none;
+    }
+
+    .menu {
+    font-family: Quicksand;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+    background-color: #434343;
+}
+
+ul {
+    list-style:none;
+    overflow: hidden;
+}
+
+.nav > li {
+    float: left;
+}
+
+.sm {
+    padding: 0px;
+}
+
+.nav li p {
+    background-color: #434343;
+    color:#fff;
+    text-decoration:none;
+    padding: 10px;
+    width: 400px;
+    text-align: center;
+    display:block;
+}
+
+.nav li a {
+    background-color: #434343;
+    color:#fff;
+    text-decoration:none;
+    padding:10px 12px;
+    display:block;
+}
+
+.nav li a:hover {
+    background-color:#a7baba;
+}
+
+.nav li ul {
+    display:none;
+    position:absolute;
+    min-width:140px;
+}
+
+.nav li:hover > ul {
+    display:block;
+}
+
+.nav li ul li {
+    position:relative;
+}
+
+.nav li ul li ul {
+    right:-140px;
+    top:0px;
+}
 }

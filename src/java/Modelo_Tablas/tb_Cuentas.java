@@ -24,6 +24,8 @@ public class tb_Cuentas {
         this.Usuario = Usuario;
     }
 
+    public tb_Cuentas() {}
+
     public int getID_Cuenta() {
         return ID_Cuenta;
     }

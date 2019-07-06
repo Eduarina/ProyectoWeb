@@ -22,6 +22,8 @@ public class C_Tipo_Comprobante {
         this.Usuario = Usuario;
     }
 
+    public C_Tipo_Comprobante() {}
+
     public int getID_Tipo_Comprobante() {
         return ID_Tipo_Comprobante;
     }

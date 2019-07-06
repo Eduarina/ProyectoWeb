@@ -5,10 +5,6 @@
         <servlet-class>Servlets.Servlet_Modif_Cuentas</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>Controlador_Cliente_Proveedor</servlet-name>
-        <servlet-class>Servlets.Controlador_Cliente_Proveedor</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>Controlador_Cuenta</servlet-name>
         <servlet-class>Servlets.Controlador_Cuenta</servlet-class>
     </servlet>
@@ -16,13 +12,25 @@
         <servlet-name>indexController</servlet-name>
         <servlet-class>Servlets.indexController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>usuarioController</servlet-name>
+        <servlet-class>Servlets.usuarioController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>createController</servlet-name>
+        <servlet-class>Servlets.createController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>showController</servlet-name>
+        <servlet-class>Servlets.showController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>updateController</servlet-name>
+        <servlet-class>Servlets.updateController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Servlet_Modif_Cuentas</servlet-name>
         <url-pattern>/Servlet_Modif_Cuentas</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>Controlador_Cliente_Proveedor</servlet-name>
-        <url-pattern>/Controlador_Cliente_Proveedor</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Controlador_Cuenta</servlet-name>
@@ -30,11 +38,27 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>indexController</servlet-name>
-        <url-pattern></url-pattern>
+        <url-pattern/>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>indexController</servlet-name>
         <url-pattern>/indexController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>usuarioController</servlet-name>
+        <url-pattern>/usuarios</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>createController</servlet-name>
+        <url-pattern>/alta</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>showController</servlet-name>
+        <url-pattern>/mostrar</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>updateController</servlet-name>
+        <url-pattern>/modificar</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

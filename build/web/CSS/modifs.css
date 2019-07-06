@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand:300&display=swap');
+
 body{
     background-color: #f2f2f2;
-    font-family: courier;
+    font-family: Quicksand;
 }
 
 * {
@@ -28,7 +30,9 @@ ul {
     background-color: #434343;
     color:#fff;
     text-decoration:none;
-    padding:10px 12px;
+    padding: 10px;
+    width: 400px;
+    text-align: center;
     display:block;
 }
 
@@ -63,14 +67,81 @@ ul {
     top:0px;
 }
 
-form {
-    text-align: center;
+div {
+    text-align: left;
     vertical-align: middle;
     padding: 2%;
-    margin: 5% 30%;
+    margin: 3% 10%;
     background-color: #e8e8e8;
 }
 
+form {
+    margin: 3% 25%;
+}
+
 label {
+    font-family: Quicksand;
     font-size: 18px;
+    float: left;
+    width: 200px;
+}
+
+.ief {
+    margin: 3% 1%;
+    columns: 200px 2;
+}
+
+div table {
+    display: none;
+}
+
+#formulario2 {
+    display: none;
+    columns: 200px 2;
+}
+
+table {
+    align-self: center;
+    font-size: 12px;
+    border-collapse: collapse;
+    overflow: hidden;
+}
+table th{
+    border: 1px solid #000;
+    padding: 8px 10px;
+    font-size: 15px;
+    font-style: bold;
+    background-color: #434343;
+    color: white;
+}
+table td {
+    background-color: #fff;
+    border: 1px solid #000;
+    padding: 8px;
+}
+.ie {
+    float: none;
+    width: 100px;
+    padding-right: 50px;
+}
+input[type=text] {
+    float: left;
+    width: calc(100% - 250px);
+}
+input[type=date] {
+    float: left;
+    width: 140px;
+}
+select {
+    float: left;
+    width: 100px;
+}
+button {
+    width: 120px;
+    height: 30px;
+    background: gray;
+    color: white;
+    font-family: Quicksand;
+    font-size: 18px;
+    float: right;
 }

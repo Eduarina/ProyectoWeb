@@ -8,6 +8,7 @@ package Servlets;
 import Consultas.Consulta_Personas;
 import Consultas.Consultas_Extras;
 import Modelo_Tablas.Usuarios;
+import Utilirias.Utils;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.logging.Level;
@@ -30,21 +31,35 @@ public class indexController extends HttpServlet {
     private Consultas_Extras consultas;
     //private RequestDispatcher rd;
     
-    @Resource(name="jdbc/PollDatasource")
-    private DataSource origen;
-
     @Override
     public void init() throws ServletException {
         super.init(); //To change body of generated methods, choose Tools | Templates.
-        consultas = new Consultas_Extras(origen);
+        consultas = new Consultas_Extras();
+        //consultas = new Consultas_Extras(origen);
     }
     
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        RequestDispatcher rd = request.getRequestDispatcher("inicio_sesion.jsp");
-        rd.forward(request, response);
+        String accion = request.getParameter("action");
+        
+        
+        if( accion != null ){
+            HttpSession session = request.getSession();
+            session.invalidate();
+            response.sendRedirect("/RO_DELAP_CONSTRUCCION_SAPI_DE_CV/");
+        }else{
+            HttpSession session = request.getSession();
+            String idUser = (String) session.getAttribute("user");
+            RequestDispatcher rd;
+            if( idUser != null){
+             rd = request.getRequestDispatcher("vista_general.jsp");   
+            }else{
+             rd = request.getRequestDispatcher("inicio_sesion.jsp");   
+            }
+            rd.forward(request, response);
+        }
         
     }
 
@@ -77,11 +92,13 @@ public class indexController extends HttpServlet {
         for(int i = 0; i < names.length; i++){
             names[i] = request.getParameter(names[i]);
         }
+        names[1] = Utils.getMD5( names[1] );
         Usuarios user = consultas.checkLogin(names);
         if( user != null ){
             if( user.getId_Usuario() != 0 ){
                 HttpSession session = request.getSession();
                 session.setAttribute("user", user.getNom_Usuario());
+                session.setAttribute("id", user.getId_Usuario());
                 rd = request.getRequestDispatcher("vista_general.jsp");
             }else{
                 request.setAttribute("error", "El usuario no esta activo");

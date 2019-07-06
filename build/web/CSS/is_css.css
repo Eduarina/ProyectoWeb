@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand:300&display=swap');
+
 		body{
 			background-color: #434343;
 		}
@@ -11,7 +13,7 @@
 		footer{
 			padding-top: 2%;
 			text-align: right;
-			font-family: courier;
+			font-family: Quicksand;
 			font-size: 5;
 			color: #7a5479;
 		}
@@ -23,6 +25,15 @@
 			background-color: #e8e8e8;
 		}
 		label {
-			font-family: courier;
+			font-family: Quicksand;
+			font-size: 18px;
+		}
+
+		button {
+			width: 120px;
+			height: 30px;
+			background: gray;
+			color: white;
+			font-family: times new roman;
 			font-size: 18px;
 		}

@@ -46,9 +46,7 @@ public class tb_Personas {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public tb_Personas() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    public tb_Personas() {}
 
     public int getID_Persona() {
         return ID_Persona;

@@ -22,6 +22,8 @@ public class C_Monedas {
         this.Usuario = Usuario;
     }
 
+    public C_Monedas() {}
+
     public int getID_Monedas() {
         return ID_Monedas;
     }
