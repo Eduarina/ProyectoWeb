@@ -8,6 +8,7 @@ package Consultas;
 import Conexion.Clase_conexion;
 import Modelo_Tablas.C_Grupo_Mov;
 import Modelo_Tablas.tb_Cuentas;
+import Modelo_Tablas.tb_Movimientos;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -215,4 +216,5 @@ public class Consulta_Cuentas {
             Logger.getLogger(Consulta_Personas.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
 }

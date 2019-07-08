@@ -68,6 +68,25 @@ public class updateController extends HttpServlet {
                 rd = request.getRequestDispatcher("/cuenta_grupo/modif_grupo.jsp");
                 break;
             case "movimientos":
+                tb_Movimientos movi = consulta_mie.getMovimiento(id);
+                List<C_Proyecto> proyectos = consultas_extras.getProyectos();
+                List<tb_Empresas> empresas = consulta_empresa.getEmpresas();
+                List<tb_Cuentas> cuentas = consulta_cuentas.getCuentas();
+                List<C_MetodoPago> metodos = consultas_extras.getMetodos();
+                List<C_FormaPago> formas = consultas_extras.getFormas();
+                List<C_Monedas> monedas = consultas_extras.getMonedas();
+                List<C_Tipo_Comprobante> tipos = consultas_extras.getTipos();
+                List<tb_Personas> personas = this.consulta_CliPro.getPersonas();
+                request.setAttribute("empresas", empresas);
+                request.setAttribute("proyectos", proyectos);
+                request.setAttribute("cuentas", cuentas);
+                request.setAttribute("metodos", metodos);
+                request.setAttribute("formas", formas);
+                request.setAttribute("monedas", monedas);
+                request.setAttribute("tipos", tipos);
+                request.setAttribute("personas", personas);
+                request.setAttribute("movimiento",movi);
+                rd = request.getRequestDispatcher("movimientos/modif_ingreso.jsp");
                     break;
         }
         rd.forward(request, response);
@@ -106,7 +125,7 @@ public class updateController extends HttpServlet {
                 break;
             case "movimiento":
                 result = llenado_mvto(request,response);
-                rd = request.getRequestDispatcher("movimientos/nuevo_ingreso_egreso.jsp");
+                response.sendRedirect("mostrar?info=movimientos");
                 break;
         }
         //rd.forward(request, response);
@@ -160,15 +179,45 @@ public class updateController extends HttpServlet {
     }
 
     private String llenado_mvto(HttpServletRequest request, HttpServletResponse response) {
+        session = request.getSession();
+        int id = Integer.parseInt( request.getParameter("id") );
         String user = (String)session.getAttribute("user");
-        String namesStrings[] = {"movtos","empresa","proyecto","folio","fecha","rfc","name","cuenta","metodo","forma","moneda","tipo","precio","des","iva","ret","ret_isr","ret_iva","ieps","ilocales","total","uuid","cto"};
-        String datosString[] = new String[6];
-        String namesEnteros[];
-        int datosEnteros[] = new int[12];
-        String namesDobles[];
-        double datosDobles[] = new double[3];
-        String namesReales[];
+        String namesStrings[] = {"folio","fecha","rfc","uuid","cto"};
+        String datosString[] = new String[5];
+        for (int i = 0; i < namesStrings.length; i++) {
+            datosString[i] = request.getParameter(namesStrings[i]);
+        }
+        String namesEnteros[] = {"proyecto","movtos","empresa","name","cuenta","metodo","forma","moneda","moneda","ilocales"};
+        int datosEnteros[] = new int[10];
+        for (int i = 0; i < namesEnteros.length; i++) {
+            datosEnteros[i] = Integer.parseInt( request.getParameter(namesEnteros[i]) );
+        }
+        String namesReales[] = {"des","iva","ret_isr","ret_iva","ieps"};
         float datosReales[] = new float[5];
+        for (int i = 0; i < namesReales.length; i++) {
+            if( i == 1 ){
+                int valor = Integer.parseInt( request.getParameter(namesReales[i]) );
+                switch(valor){
+                    case 1:
+                        datosReales[i] = (float) 0.16;
+                        break;
+                    case 2:
+                        datosReales[i] = (float) 0.15;
+                        break;
+                    default:
+                        datosReales[i] = (float) 0.0;
+                }
+            }else{
+                datosReales[i] = Float.parseFloat( request.getParameter(namesReales[i]) );   
+            }
+        }
+        String namesDobles[] = {"precio","subt","total"};
+        double datosDobles[] = new double[3];
+        for (int i = 0; i < namesDobles.length; i++) {
+            double valor = Double.parseDouble( request.getParameter(namesDobles[i]) );
+            datosDobles[i] = Double.parseDouble( request.getParameter(namesDobles[i]) );
+        }
+        consulta_mie.actualizaDatos( id, user, datosString, datosEnteros, datosDobles, datosReales );
         return "Correcto";
     }
 

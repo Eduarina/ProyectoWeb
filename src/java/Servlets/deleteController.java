@@ -65,6 +65,9 @@ public class deleteController extends HttpServlet {
                     nuevo = "empresas";
                 break;
                 case "movimientos":
+                    tabla = "tb_movimientos";
+                    campo = "Folio";
+                    nuevo = "movimientos";
                 break;
         }
         int id = Integer.parseInt( request.getParameter("id") );

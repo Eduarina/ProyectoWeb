@@ -96,6 +96,8 @@ public class tb_Movimientos {
         this.Usuario = Usuario;
     }
 
+    public tb_Movimientos() {}
+
     public float getTotal() {
         return total;
     }

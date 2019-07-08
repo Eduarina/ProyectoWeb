@@ -149,13 +149,13 @@
                 <input name="subt" id="neto" required=""><br><br>
                 
                 <label for="entid">Ret. ISR:</label>
-                <input name="ret_isr" id="ris" disabled><br><br>
+                <input name="ret_isr" id="ris" readonly="readonly"><br><br>
 
                 <label for="phone">Ret. IVA:</label>
-                <input name="ret_iva" id="riv" disabled><br><br>
+                <input name="ret_iva" id="riv" readonly="readonly"><br><br>
 
                 <label for="total">Total:</label>
-                <input name="total" id="tota" disabled><br><br>
+                <input name="total" id="tota" readonly="readonly"><br><br>
 
                 <label for="uuid">UUID:</label>
                 <input type="text" name="uuid" id="loc" required=""><br><br>

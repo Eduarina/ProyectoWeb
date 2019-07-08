@@ -52,27 +52,34 @@
 	<div>
 		<form>
 			<label for="movto">Movimiento:</label>
-			<input type="radio" name="movtos" id="ingr" value="ingreso">
+			<input type="radio" name="movto" id="ingr" value="Ingreso">
 			<label for="ingreso"> Ingreso </label>
-			<input type="radio" name="movtos" id="egre" value="egreso">
+			<input type="radio" name="movto" id="egre" value="Egreso">
 			<label for="egreso"> Egreso</label>
-			<input type="radio" name="movtos" id="todo" value="todos">
+			<input type="radio" name="movto" checked="" id="todo" value="Todos">
 			<label for="all"> Ambos</label><br><br>
-			<label for="email">Empresa:</label>
-			<select>
-				<option value="e1">Empresa 1</option>
-				<option value="e2">Empresa 2</option>
+			<label for="emp">Empresa:</label>
+			<select name="emp">
+				<c:forEach items="${empresas}" var="empresa">
+                                    <option value="empresa.ID_Empresa">${empresa.nombre}</option>
+                                </c:forEach>
 			</select><br><br>
-			<label for="email">Proyecto:</label>
-			<select>
-				<option value="p1">Proyecto 1</option>
-				<option value="p2">Proyecto 2</option>
-				<option value="p3">Proyecto 3</option>
+			<label for="proyecto">Proyecto:</label>
+			<select name="proyecto">
+				<c:forEach items="${proyectos}" var="proyecto">
+                                    <option value="${proyecto.ID_Proyecto}" >${proyecto.descripcion}</option>
+                                </c:forEach>
 			</select><br><br>
 			<label for="fech">Fecha:</label>
 			<input type="date" name="fech"><br><br>
 			<label>Persona:</label>
-			<input type="select" name="ppl"><br><br>
+			<select name="person">
+				<c:forEach items="${personas}" var="persona">
+                                    <option value="${persona.ID_Persona}">${persona.nombre}</option>
+                                </c:forEach>
+			</select><br><br>
+                        <button type="reset">Limpiar</button>
+                        <button type="submit">Buscar</button>
 		</form>
 		<table>
 			<tr>
@@ -179,7 +186,7 @@
 				<td></td>
                                 <td>${movimiento.usuario}</td>
                                 <c:if test="${sessionScope.tipo < 2}">
-				<td><a href="modificar?info=cuentas&id=${movimiento.folio}" class="modif">Edit</a></td>
+				<td><a href="modificar?info=movimientos&id=${movimiento.folio}" class="modif">Edit</a></td>
 				<td><a href="baja?info=movimiento&id=${data.ID_Persona}" class="eliminar"><img width="20" height="20" src="https://images.ecosia.org/jnuw2NONcI2KMfsY1Y3EhQLZ-to=/0x390/smart/https%3A%2F%2Fcdn.pixabay.com%2Fphoto%2F2017%2F02%2F23%2F08%2F46%2Fgarbage-2091534_960_720.png" id="trash"></a></td>
                                 </c:if>
                                 </c:forEach>

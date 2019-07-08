@@ -101,6 +101,8 @@ public class showController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String names[] = {"movto","emp", "proyecto", "fech", "person" };
+        
     }
 
     /**
