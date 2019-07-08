@@ -19,7 +19,8 @@ public class Usuarios {
     private String Fecha_Nacimiento;
     private String Telefono;
     private int Status;
-
+    private int tipo;
+        
     public Usuarios() {
     }
     
@@ -41,7 +42,13 @@ public class Usuarios {
         this.Status = Status;
     }
 
-    
+    public int getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(int tipo) {
+        this.tipo = tipo;
+    }
     
     public int getId_Usuario() {
         return Id_Usuario;

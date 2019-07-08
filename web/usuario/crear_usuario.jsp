@@ -38,7 +38,7 @@
             <input type="text" name="user" id="username" required=""><br><br>
 
             <label for="pword">Contraseña:</label>
-            <input type="text" name="pw" id="pword" required=""><br><br>
+            <input type="password" name="pw" id="pword" required=""><br><br>
 
             <button>Crear usuario</button>
         </form>

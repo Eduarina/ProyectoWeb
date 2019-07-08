@@ -11,6 +11,37 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
         <link rel="stylesheet" type="text/css" href="CSS/nuevos.css">
+        <script>
+            function aplicaIVA(){
+                var ret = document.getElementById("ret");
+                var data = "", dataS = "", dataI = "", dataT = "";
+                if( ret.checked == true ){
+                    var subt = parseFloat( document.getElementById("subt").value, 0.0 );
+                    var iva = document.getElementById("iva").value;
+                    switch(iva){
+                        case "1":
+                            iva = 0.16;
+                            break;
+                            case "2":
+                                iva = 0.15;
+                            break;
+                    }
+                    data = subt*(1+iva);
+                    dataS = subt*0.1;
+                    dataI = (subt * iva )*2/3;
+                    var ieps = parseFloat( document.getElementById("ieps").value, 0.0);
+                    var imp = parseFloat( document.getElementById("cnta").value,0.0 );
+                    var 
+                    dataT = data - dataS - dataI + ieps+imp;
+                }
+                
+                document.getElementById("neto").value = data;
+                document.getElementById("ris").value = round(dataS,2);
+                document.getElementById("riv").value = round(dataI,2);
+                document.getElementById("tota").value = dataT;
+                
+            }
+        </script>
     </head>
     <body>
         <jsp:include page="../menu.jsp" ></jsp:include>
@@ -95,32 +126,36 @@
                 <input type="text" name="des" id="direcc" required=""><br><br><br>
 
                 <label for="subt">Subtotal:</label>
-                <input name="subt" required=""><br><br>
+                <input name="subt" id="subt" required=""><br><br>
 
                 <label for="iva">IVA:</label>
                 <!--<input type="dropdown" name="iva1">-->
-                <select name="iva">
-                    <option value="1">Valor 1</option>
-                    <option value="2">Valor 2</option>
-                    <option value="3">Valor 3</option>
+                <select name="iva" id="iva">
+                    <option value="1">16%</option>
+                    <option value="2">10%</option>
+                    <option value="3">N/A%</option>
                 </select><br><br>
-                <label for="ret">Aplica Retención</label>
-                <input type="radio" name="ret"><br><br>
-
-                <label for="entid">Ret. ISR:</label>
-                <input name="ret_isr"><br><br>
-
-                <label for="phone">Ret. IVA:</label>
-                <input name="ret_iva"><br><br>
                 
                 <label for="ieps">IEPS:</label>
-                <input type="text" name="ieps" id="mail" required=""><br><br>
+                <input type="text" name="ieps" id="ieps" required=""><br><br>
 
                 <label for="ilocales">Imps. Locales:</label>
                 <input type="text" name="ilocales" id="cnta" required=""><br><br>
+                
+                <label for="ret">Aplica Retención</label>
+                <input type="checkbox" id="ret" onchange="aplicaIVA();" name="ret"><br><br>
+
+                <label for="subt">Subtotal:</label>
+                <input name="subt" id="neto" required=""><br><br>
+                
+                <label for="entid">Ret. ISR:</label>
+                <input name="ret_isr" id="ris" disabled><br><br>
+
+                <label for="phone">Ret. IVA:</label>
+                <input name="ret_iva" id="riv" disabled><br><br>
 
                 <label for="total">Total:</label>
-                <input name="total" required=""><br><br>
+                <input name="total" id="tota" disabled><br><br>
 
                 <label for="uuid">UUID:</label>
                 <input type="text" name="uuid" id="loc" required=""><br><br>

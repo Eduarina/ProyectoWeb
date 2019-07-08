@@ -99,6 +99,7 @@ public class indexController extends HttpServlet {
                 HttpSession session = request.getSession();
                 session.setAttribute("user", user.getNom_Usuario());
                 session.setAttribute("id", user.getId_Usuario());
+                session.setAttribute("tipo", user.getTipo());
                 rd = request.getRequestDispatcher("vista_general.jsp");
             }else{
                 request.setAttribute("error", "El usuario no esta activo");

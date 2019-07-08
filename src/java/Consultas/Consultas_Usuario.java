@@ -30,12 +30,13 @@ public class Consultas_Usuario {
     public String insertaUsuario(String[] names) {
         try {
             conexion = Clase_conexion.getInstance();
-            sql = "INSERT INTO usuarios (`Nombre`, `Apellido`, `Fecha_Nacimiento`, `Telefono`, `Nom_usuario`, `Contrasena`, `Sexo`, `Status`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            sql = "INSERT INTO usuarios (`Nombre`, `Apellido`, `Fecha_Nacimiento`, `Telefono`, `Nom_usuario`, `Contrasena`, `Sexo`, `Status`, Tipo) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ? )";
             miStatement = conexion.getConexion().prepareStatement(sql);
             for (i = 0; i < names.length; i++) {
                 miStatement.setString((i+1), names[i]);
             }
             miStatement.setInt(i+1, 1);
+            miStatement.setInt(i+2, 2);
             boolean execute = miStatement.execute();
             if( execute == true )
                 return "Correcto";

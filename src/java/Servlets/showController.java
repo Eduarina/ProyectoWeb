@@ -5,13 +5,8 @@
  */
 package Servlets;
 
-import Consultas.Consulta_Cuentas;
-import Consultas.Consulta_Personas;
-import Consultas.Consultas_Extras;
-import Modelo_Tablas.C_Grupo_Mov;
-import Modelo_Tablas.C_Proyecto;
-import Modelo_Tablas.tb_Cuentas;
-import Modelo_Tablas.tb_Personas;
+import Consultas.*;
+import Modelo_Tablas.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -32,6 +27,8 @@ public class showController extends HttpServlet {
     private Consulta_Personas consulta_CliPro;
     private Consulta_Cuentas consulta_cuentas;
     private Consultas_Extras consulta_extras;
+    private Consulta_Empresas consulta_empresa;
+    private Consulta_Movimiento_IE consulta_mie;
     
     @Override
     public void init() throws ServletException {
@@ -39,6 +36,8 @@ public class showController extends HttpServlet {
         consulta_CliPro = new Consulta_Personas();
         consulta_cuentas = new Consulta_Cuentas();
         consulta_extras = new Consultas_Extras();
+        consulta_empresa = new Consulta_Empresas();
+        consulta_mie = new Consulta_Movimiento_IE();
     }
     
     @Override
@@ -67,6 +66,26 @@ public class showController extends HttpServlet {
                 rd = request.getRequestDispatcher("cuenta_grupo/mostrar_ctas_gpos.jsp");
                 break;
             case "movimientos":
+                List<C_Proyecto> proyectos = consulta_extras.getProyectos();
+                List<C_Grupo_Mov> grupitos = consulta_cuentas.getGrupos();
+                List<tb_Empresas> empresas = consulta_empresa.getEmpresas();
+                List<tb_Cuentas> cuenta = consulta_cuentas.getCuentas();
+                List<C_MetodoPago> metodos = consulta_extras.getMetodos();
+                List<C_FormaPago> formas = consulta_extras.getFormas();
+                List<C_Monedas> monedas = consulta_extras.getMonedas();
+                List<C_Tipo_Comprobante> tipos = consulta_extras.getTipos();
+                List<tb_Personas> personas = this.consulta_CliPro.getPersonas();
+                request.setAttribute("empresas", empresas);
+                request.setAttribute("proyectos", proyectos);
+                request.setAttribute("cuentas", cuenta);
+                request.setAttribute("grupos", grupitos);
+                request.setAttribute("metodos", metodos);
+                request.setAttribute("formas", formas);
+                request.setAttribute("monedas", monedas);
+                request.setAttribute("tipos", tipos);
+                request.setAttribute("personas", personas);
+                List<tb_Movimientos> movimientos = consulta_mie.getMovimientos();
+                request.setAttribute("movimientos", movimientos);
                 rd = request.getRequestDispatcher("movimientos/mostrar_movimientos.jsp");
                 break;
             case "proyectos":

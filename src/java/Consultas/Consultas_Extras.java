@@ -47,6 +47,7 @@ public class Consultas_Extras {
                     user = new Usuarios();
                     user.setId_Usuario( rs.getInt(1) );
                     user.setNom_Usuario( rs.getString(2) );
+                    user.setTipo( rs.getInt("Tipo") );
                 }
             }
         } catch (Exception e) {

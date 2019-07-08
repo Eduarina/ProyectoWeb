@@ -27,9 +27,12 @@ public class tb_Movimientos {
     private float Ret_ISR;
     private float IEPS;
     private String UUID;
-    private String Tipo_Cambio;
-    private String Conversion;
-    private String Ruta_Archivo;
+    private int Impuestos;
+    private String rutadoc;
+    private float total;
+    private String Tipo_Cambio;//
+    private String Conversion;//
+    private String Ruta_Archivo;//
     private String Status;
     private String Usuario;
 
@@ -63,7 +66,46 @@ public class tb_Movimientos {
         this.Status = Status;
         this.Usuario = Usuario;
     }
+    
+    public tb_Movimientos(String Folio, int ID_Movimiento, int ID_Proyecto, int Ingreso_Egreso, Date Fecha, String RFC, int ID_Empresa, int ID_Persona, int ID_Cuenta, int ID_Metodo_Pago, int ID_Forma_Pago, int ID_Moneda, int ID_Tipo_Comprobante, String Concepto, double Precio_Unitario, float Descuento, double Sub_total, float IVA, float Ret_IVA, float Ret_ISR, float IEPS, String UUID, int Impuestos, String rutadoc, String Status, String Usuario) {
+        this.Folio = Folio;
+        this.ID_Movimiento = ID_Movimiento;
+        this.ID_Proyecto = ID_Proyecto;
+        this.Ingreso_Egreso = Ingreso_Egreso;
+        this.Fecha = Fecha;
+        this.RFC = RFC;
+        this.ID_Empresa = ID_Empresa;
+        this.ID_Persona = ID_Persona;
+        this.ID_Cuenta = ID_Cuenta;
+        this.ID_Metodo_Pago = ID_Metodo_Pago;
+        this.ID_Forma_Pago = ID_Forma_Pago;
+        this.ID_Moneda = ID_Moneda;
+        this.ID_Tipo_Comprobante = ID_Tipo_Comprobante;
+        this.Concepto = Concepto;
+        this.Precio_Unitario = Precio_Unitario;
+        this.Descuento = Descuento;
+        this.Sub_total = Sub_total;
+        this.IVA = IVA;
+        this.Ret_IVA = Ret_IVA;
+        this.Ret_ISR = Ret_ISR;
+        this.IEPS = IEPS;
+        this.UUID = UUID;
+        this.Impuestos = Impuestos;
+        this.rutadoc = rutadoc;
+        this.Status = Status;
+        this.Usuario = Usuario;
+    }
 
+    public float getTotal() {
+        return total;
+    }
+
+    public void setTotal(float total) {
+        this.total = total;
+    }
+    
+    
+    
     public String getFolio() {
         return Folio;
     }
@@ -278,6 +320,22 @@ public class tb_Movimientos {
 
     public void setUsuario(String Usuario) {
         this.Usuario = Usuario;
+    }
+
+    public int getImpuestos() {
+        return Impuestos;
+    }
+
+    public void setImpuestos(int Impuestos) {
+        this.Impuestos = Impuestos;
+    }
+
+    public String getRutadoc() {
+        return rutadoc;
+    }
+
+    public void setRutadoc(String rutadoc) {
+        this.rutadoc = rutadoc;
     }
 
     
