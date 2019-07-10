@@ -37,7 +37,7 @@ public class tb_Movimientos {
     private String Usuario;
 
 
-    public tb_Movimientos(String Folio, int ID_Movimiento, int ID_Proyecto, int Ingreso_Egreso, Date Fecha, String RFC, int ID_Empresa, int ID_Persona, int ID_Cuenta, int ID_Metodo_Pago, int ID_Forma_Pago, int ID_Moneda, int ID_Tipo_Comprobante, String Concepto, double Precio_Unitario, float Descuento, double Sub_total, float IVA, float Ret_IVA, float Ret_ISR, float IEPS, String UUID, String Tipo_Cambio, String Conversion, String Ruta_Archivo, String Status, String Usuario) {
+    public tb_Movimientos(String Folio, int ID_Movimiento, int ID_Proyecto, int Ingreso_Egreso, Date Fecha, String RFC, int ID_Empresa, int ID_Persona, int ID_Cuenta, int ID_Metodo_Pago, int ID_Forma_Pago, int ID_Moneda, int ID_Tipo_Comprobante, String Concepto, double Precio_Unitario, float Descuento, double Sub_total, float IVA, float Ret_IVA, float Ret_ISR, float IEPS, String UUID, String Tipo_Cambio, int Conversion, String Ruta_Archivo, String Status, String Usuario) {
         this.Folio = Folio;
         this.ID_Movimiento = ID_Movimiento;
         this.ID_Proyecto = ID_Proyecto;
@@ -61,7 +61,7 @@ public class tb_Movimientos {
         this.IEPS = IEPS;
         this.UUID = UUID;
         this.Tipo_Cambio = Tipo_Cambio;
-        this.Conversion = Conversion;
+        this.Impuestos = Conversion;
         this.Ruta_Archivo = Ruta_Archivo;
         this.Status = Status;
         this.Usuario = Usuario;

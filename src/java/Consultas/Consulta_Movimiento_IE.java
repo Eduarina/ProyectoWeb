@@ -46,7 +46,7 @@ public class Consulta_Movimiento_IE {
             if( rs.next() ){
                 idMov = rs.getInt(1);
             }
-            sql = "INSERT INTO `tb_movimientos` (`Folio`, `Fecha`, `RFC`, `Concepto`, `UUID`, `Id_Proyecto`, `Ingreso_Egreso`, `Id_Empresas`, `Id_Personas`, `Id_Cuenta`, `Id_MetodoPago`, `Id_FormPago`, `Id_Monedas`, `Id_TipoComprobante`, `Impuestos_locales`, `Precio_Unitario`, `Subtotal`, `Total`, `Descuento`, `IVA`, `Ret_IVA`, `Ret_ISR`, `IEPS`, `Status`, `Usuario`, Id_Movimiento) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            sql = "INSERT INTO `tb_movimientos` (`Folio`, `Fecha`, `RFC`, `Concepto`, `UUID`, `Id_Proyecto`, `Ingreso_Egreso`, `Id_Empresas`, `Id_Personas`, `Id_Cuenta`, `Id_MetodoPago`, `Id_FormPago`, `Id_Monedas`, `Id_TipoComprobante`, `Impuestos`, `Precio_Unitario`, `Subtotal`, `Total`, `Descuento`, `IVA`, `Ret_IVA`, `Ret_ISR`, `IEPS`, `Status`, `Usuario`, Id_Movimiento) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             miStatement = conexion.getConexion().prepareStatement(sql);
             for (int j = 0; j < datosString.length; j++) {
                 miStatement.setString(i, datosString[j]);
@@ -103,17 +103,19 @@ public class Consulta_Movimiento_IE {
                 float rtisr= rs.getFloat("Ret_ISR");
                 float ieps = rs.getFloat("IEPS");
                 String uuid = rs.getString("UUID");
-                int impuest = rs.getInt("Impuestos_Locales");
+                String impuest = rs.getString("Tipo_Cambio");
+                int imp = rs.getInt("Impuestos");
                 String ruta = rs.getString("Ruta_Archivo");
                 String status = rs.getString("Status");
                 String usuario = rs.getString("Usuario");
                 tb_Movimientos nuevo = new tb_Movimientos(folio,idmov,idpro,ingegre,fecha,rfc,
                             idemp,idper,idcuent,idmetpag,idformpag,idMon,idtipcompr,concep,preuni,descuent,
-                subtt,iva,rtiva,rtisr,ieps,uuid,impuest,ruta,status,usuario);    
+                subtt,iva,rtiva,rtisr,ieps,uuid,impuest,imp,ruta,status,usuario);    
                 nuevo.setTotal( rs.getFloat("Total") );
                 lista.add(nuevo);
             }
         } catch (Exception e) {
+                System.out.println(e);
         }
         return lista;
     }

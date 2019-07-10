@@ -85,7 +85,7 @@ public class showController extends HttpServlet {
                 request.setAttribute("tipos", tipos);
                 request.setAttribute("personas", personas);
                 List<tb_Movimientos> movimientos = consulta_mie.getMovimientos();
-                request.setAttribute("movimientos", movimientos);
+                    request.setAttribute("movimientos", movimientos);
                 rd = request.getRequestDispatcher("movimientos/mostrar_movimientos.jsp");
                 break;
             case "proyectos":

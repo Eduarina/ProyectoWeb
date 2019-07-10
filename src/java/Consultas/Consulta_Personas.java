@@ -48,7 +48,7 @@ public class Consulta_Personas {
         List<tb_Personas> lista = new ArrayList<>();
         try {
             conexion = Clase_conexion.getInstance();
-            String sql = "SELECT * FROM tb_Personas WHERE Cliente_Proveedor = ? AND status = 1";
+            String sql = "SELECT * FROM tb_Personas WHERE Id_Cliente_Proveedor = ? AND status = 1";
             miStatement = conexion.getConexion().prepareStatement(sql);
             miStatement.setInt(1, i);
             rs = miStatement.executeQuery();
