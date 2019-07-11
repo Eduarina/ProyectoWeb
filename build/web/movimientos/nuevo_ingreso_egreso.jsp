@@ -126,7 +126,7 @@
                 <input type="text" name="des" id="direcc" required=""><br><br><br>
 
                 <label for="subt">Subtotal:</label>
-                <input name="subt" id="subt" required=""><br><br>
+                <input name="subt" id="subt" onkeypress="aplicaIVA();" required=""><br><br>
 
                 <label for="iva">IVA:</label>
                 <!--<input type="dropdown" name="iva1">-->
@@ -137,10 +137,10 @@
                 </select><br><br>
                 
                 <label for="ieps">IEPS:</label>
-                <input type="text" name="ieps" id="ieps" required=""><br><br>
+                <input type="text" name="ieps" id="ieps" onkeypress="aplicaIVA();" required=""><br><br>
 
                 <label for="ilocales">Imps. Locales:</label>
-                <input type="text" name="ilocales" id="cnta" required=""><br><br>
+                <input type="text" name="ilocales" onkeypress="aplicaIVA();"  id="cnta" required=""><br><br>
                 
                 <label for="ret">Aplica Retención</label>
                 <input type="checkbox" id="ret" onchange="aplicaIVA();" name="ret"><br><br>
